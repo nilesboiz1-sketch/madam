@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For a Cute Girl 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .letter {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 500px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 25px;
+      background: #ff6f91;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff4d6d;
+      transform: scale(1.1);
+    }
+
+    .hidden-message {
+      margin-top: 20px;
+      font-size: 1.4rem;
+      display: none;
+      animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      font-size: 20px;
+      animation: floatUp 5s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-800px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="letter">
+    <h1>Hi Cute Girl 💕</h1>
+    <p>
+      This little website is just for you.  
+      You make the world brighter every single day.  
+    </p>
+    <button onclick="showMessage()">Click Me 🌸</button>
+    <div class="hidden-message" id="hiddenMessage">
+      You are special, more than words can ever say 💖
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('hiddenMessage').style.display = 'block';
+    }
+
+    // Floating hearts
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      document.body.appendChild(heart);
+
+      setTimeout(() => { heart.remove(); }, 5000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
